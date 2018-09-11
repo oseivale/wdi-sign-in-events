@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
 var signIn = document.querySelector('.signin');
 var modalWindow = document.querySelector('.modal');
 var close = document.querySelector('.close');
-var submitButton = document.querySelector('submit');
+var submitButton = document.querySelector('.submit');
+var inputs = document.querySelectorAll('input');
 
 signIn.addEventListener('click', function(){
   modalWindow.style.display = 'block';
@@ -24,8 +25,17 @@ modalWindow.addEventListener('click', function(){
   modalWindow.style.display = 'none';
 })
 
-submitButton.createElement('error');
+submitButton.addEventListener('click', function(){
+  inputs.forEach(function(input){
+    input.classList.add('error');
+  })
 
+});
 
+inputs.forEach(function(input){
+  input.addEventListener('click', function(){
+    input.classList.remove('error');
+  })
+})
 
 });
